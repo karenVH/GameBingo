@@ -51,7 +51,7 @@ Para arrancar el backend puedes seguir los siguientes pasos:
 7. puedes realizar las peticiones get y post pdel juego 
 
 ##
-##¿Qué faltó :(?
+## ¿Qué faltó? :(
   - La conexión del backend con el frontend utilizando fetch
   - logica para generar numeros aleatorios para el bingo
   - logica para sacar el ganador del juego
