@@ -1,0 +1,20 @@
+package sofka.bingo.dao;
+
+import com.sofka.domain.Game;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.CrudRepository;
+
+public interface GameDao extends CrudRepository<Game, Long> {
+
+        /**consultas para crear el juego, se necesita llenar todos los datos requeridos */
+        @Modifying
+        @Query("INSERT INTO gameb (gameStatus) VALUES (1);")
+        @Query("INSERT INTO gameDetails (numberPosition, FKidGame) VALUES (4, 1);")
+        @Query("INSERT INTO playercard (letter, number, FKidGame_player) VALUES ('G', 49, 1);")
+        public void create(@Param(value = "id") Long id,
+                           @Param(value = "gameStatus") int gameStatus,
+                           @Param(value = "numberPosition") int numberPosition,
+                           @Param(value = "letter") String letter,
+                           @Param(value = "number") int number);
+}

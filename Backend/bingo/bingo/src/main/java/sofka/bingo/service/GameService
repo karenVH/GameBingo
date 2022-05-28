@@ -1,0 +1,33 @@
+package sofka.bingo.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+
+@Service
+public class GameService implements IGameService {
+    @Autowired
+    private GameDao gamedao;
+
+    @Override 
+    @Transactional
+    public List<Game> list(){
+        return null;
+
+    }
+    @Override
+    @Transactional
+    public Game save(Game game){
+       return gamedao.save(game);
+    }
+
+    @Override
+    @Transactional
+    public String reset(){
+        gamedao.reset();
+        return "Game reset";
+    }
+
+}
